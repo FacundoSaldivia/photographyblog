@@ -25,6 +25,7 @@ previews.forEach((preview) => {
   preview.addEventListener('click', ()=>{
     if(screen.width > 1000){
       modal1.classList.add('open');
+      original.classList.add('open');
       //Cambio dinamico de imagen y texto
       const originalSrc = preview.getAttribute('src');
       original.src = `${originalSrc}`
@@ -35,6 +36,7 @@ previews.forEach((preview) => {
 modal1.addEventListener('click',(e)=>{
   if(e.target.classList.contains('modal1')){
     modal1.classList.remove('open');
+    original.classList.remove('open');
   }
 })
 
