@@ -5,7 +5,7 @@
   padding-left: $pad2;
   padding-right: $pad2;
   display: grid;
-  grid-template-columns: repeat($col, 1fr); /* 8 columnas */
-  grid-template-rows: repeat($row, 5vw); /* 8 filas*/
+  grid-template-columns: repeat($col, 1fr); /* columnas */
+  grid-template-rows: repeat($row, 5vw); /* filas*/
   grid-gap: 20px;
 }

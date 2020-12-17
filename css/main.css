@@ -60,6 +60,16 @@ body {
   font-size: 1.7rem;
 }
 
+.btn-disappear {
+  width: 0rem !important;
+  height: 0rem !important;
+  border: 0px !important;
+}
+
+.btn-disappear i {
+  font-size: 0rem !important;
+}
+
 /* bg image  */
 .fixed-bg {
   /* The background image, gradient makes the img darker  */
@@ -186,6 +196,7 @@ body {
   cursor: pointer;
   z-index: 9999;
   /* boton circle size */
+  /* galeria, aca se especificac las columnas, filas y padding -- cada item se le especifica la fila y columna en donde empieza y donde termina */
 }
 
 .back-btn i {
@@ -208,7 +219,6 @@ body {
   margin-top: 10%;
 }
 
-/* galeria, aca se especificac las columnas, filas y padding -- cada item se le especifica la fila y columna en donde empieza y donde termina */
 .gallery {
   position: relative;
   padding-top: 3%;
@@ -217,9 +227,9 @@ body {
   padding-right: 5%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  /* 8 columnas */
-  grid-template-rows: repeat(17, 5vw);
-  /* 8 filas*/
+  /* columnas */
+  grid-template-rows: repeat(16, 5vw);
+  /* filas*/
   grid-gap: 20px;
 }
 
@@ -301,7 +311,7 @@ body {
   grid-row-end: 12;
 }
 
-.gallery-city .gallery__item--6 {
+.gallery-city .gallery__item--5 {
   grid-column-start: 1;
   grid-column-end: 9;
   grid-row-start: 12;
@@ -343,8 +353,35 @@ body {
   grid-row-end: 12;
 }
 
-#footer {
-  top: 100rem;
+.modal1 {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease-out;
+}
+
+.modal1.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.full-img {
+  display: flex;
+  position: absolute;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.25s ease-out scale(0.9);
+}
+
+.full-img.open {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @media (max-width: 640px) {
@@ -352,21 +389,32 @@ body {
   .toggle-btn {
     top: 2.3rem;
     right: 1.3rem;
+    top: 2.3rem;
+    right: 1.3rem;
+  }
+  .toggle-btn-gallery {
+    width: 2rem;
+    height: 2rem;
+    top: 0.9rem;
+    right: 1rem;
+  }
+  .toggle-btn-gallery i {
+    font-size: 1rem;
   }
   .back-btn {
-    width: 2.2rem;
-    height: 1.6rem;
+    width: 2.6rem;
+    height: 1.9rem;
     top: 1rem;
     left: 1rem;
   }
   .back-btn i {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
   .back-btn a {
     font-size: 1.7rem;
     position: absolute;
-    top: -1rem;
-    left: 0.6rem;
+    top: -0.69rem;
+    left: 0.7rem;
   }
   .container-img {
     padding-top: 70%;
@@ -396,11 +444,70 @@ body {
   .gallery {
     padding: 0;
     margin: 0;
-    margin-right: 18px;
+    margin-right: 0px;
+    position: relative;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* columnas */
+    grid-template-rows: repeat(17, 5vw);
+    /* filas*/
+    grid-gap: 20px;
   }
   .gallery img {
     padding-top: 0%;
     margin: 0;
+  }
+  .gallery-nature .gallery__item--1,
+  .gallery-city .gallery__item--1,
+  .gallery-food .gallery__item--1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 10;
+  }
+  .gallery-nature .gallery__item--2,
+  .gallery-city .gallery__item--2,
+  .gallery-food .gallery__item--2 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 10;
+    grid-row-end: 20;
+  }
+  .gallery-nature .gallery__item--3,
+  .gallery-city .gallery__item--3,
+  .gallery-food .gallery__item--3 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 20;
+    grid-row-end: 30;
+  }
+  .gallery-nature .gallery__item--4,
+  .gallery-city .gallery__item--4,
+  .gallery-food .gallery__item--4 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 30;
+    grid-row-end: 40;
+  }
+  .gallery-nature .gallery__item--5,
+  .gallery-city .gallery__item--5,
+  .gallery-food .gallery__item--5 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 40;
+    grid-row-end: 50;
+  }
+  .gallery-nature .gallery__item--6,
+  .gallery-city .gallery__item--6,
+  .gallery-food .gallery__item--6 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 50;
+    grid-row-end: 60;
   }
   .swiper-container {
     width: 100%;

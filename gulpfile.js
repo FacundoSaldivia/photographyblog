@@ -19,7 +19,7 @@ function css() {
 }
 
 function watchFiles() {
-                gulp.watch('*.scss', css);
+                gulp.watch('scss/*.scss', css);
                 gulp.watch('index.html');
 }
 

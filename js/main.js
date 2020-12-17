@@ -15,18 +15,27 @@ toggleBtn.addEventListener('click', function(){
     }
 })
 
-var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    slidesPerGroup: 1,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
+const modal1 = document.querySelector('.modal1');
+const btn = document.querySelector('.btn1');
+const previews = document.querySelectorAll('.gallery img');
+const original = document.querySelector('.full-img');
+const imgText = document.querySelector('.caption');
+
+previews.forEach((preview) => {
+  preview.addEventListener('click', ()=>{
+    if(screen.width > 1000){
+      modal1.classList.add('open');
+      //Cambio dinamico de imagen y texto
+      const originalSrc = preview.getAttribute('src');
+      original.src = `${originalSrc}`
+    }
+  })
+})
+
+modal1.addEventListener('click',(e)=>{
+  if(e.target.classList.contains('modal1')){
+    modal1.classList.remove('open');
+  }
+})
+
+
